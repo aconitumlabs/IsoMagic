@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6hlx4nh1j8fy"]
+
+[ext_resource type="Script" uid="uid://b2yxf4a6cvach" path="res://Scripts/cube.gd" id="1_m6c8s"]
+[ext_resource type="PackedScene" uid="uid://bg5e07hrl31vr" path="res://Models/cube.blend" id="2_dt3qw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wd2d1"]
+
+[node name="Cube" type="StaticBody3D"]
+script = ExtResource("1_m6c8s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_wd2d1")
+
+[node name="cube" parent="." instance=ExtResource("2_dt3qw")]
+
+[node name="Light" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.891782, 0.452466, 0, -0.452466, 0.891782, 0, 2.05217, 2.8678)
+light_energy = 3.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+
+[editable path="cube"]

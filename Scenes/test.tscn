@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt1o1ffax1rep"]
+
+[ext_resource type="PackedScene" uid="uid://6hlx4nh1j8fy" path="res://Scenes/cube.tscn" id="1_lc1oi"]
+[ext_resource type="PackedScene" uid="uid://d4ld01l3p8xom" path="res://Scenes/player.tscn" id="2_8od7v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lc1oi"]
+sky_top_color = Color(0.188472, 0.172357, 0.55, 1)
+sky_horizon_color = Color(0.410454, 0.398675, 0.484086, 1)
+ground_horizon_color = Color(0.410454, 0.398675, 0.484086, 1)
+
+[sub_resource type="Sky" id="Sky_8od7v"]
+sky_material = SubResource("ProceduralSkyMaterial_lc1oi")
+
+[sub_resource type="Environment" id="Environment_qc4db"]
+background_mode = 2
+sky = SubResource("Sky_8od7v")
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lc1oi"]
+
+[node name="Test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qc4db")
+
+[node name="Cube" parent="." instance=ExtResource("1_lc1oi")]
+
+[node name="Cube2" parent="." instance=ExtResource("1_lc1oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00599, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.993858, 0)
+mesh = SubResource("PlaneMesh_lc1oi")
+
+[node name="Player" parent="." instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.92992)

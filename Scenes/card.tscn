@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://5m28cdsafwfv"]
+
+[ext_resource type="Script" uid="uid://bk320yv5q4rw1" path="res://Scripts/card.gd" id="1_brehn"]
+[ext_resource type="Texture2D" uid="uid://cdv3axxg3jb3q" path="res://Sprites/Card.png" id="2_eumee"]
+[ext_resource type="FontFile" uid="uid://dly4h3edjcqxc" path="res://Fonts/Beyond Wonderland.ttf" id="3_e6po8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjlel"]
+albedo_texture = ExtResource("2_eumee")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q5obu"]
+material = SubResource("StandardMaterial3D_rjlel")
+size = Vector3(1, 1.5, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e484p"]
+size = Vector3(1, 1.5, 0.1)
+
+[node name="Card" type="StaticBody3D"]
+script = ExtResource("1_brehn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_q5obu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_e484p")
+
+[node name="Slot" type="Node3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.491632, 0.0254475)
+shaded = true
+double_sided = false
+modulate = Color(1, 0, 0, 1)
+font = ExtResource("3_e6po8")
