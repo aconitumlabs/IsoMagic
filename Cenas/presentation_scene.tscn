@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://74vep1lktiq0"]
+
+[ext_resource type="Texture2D" uid="uid://b64dynwookj0q" path="res://27e9691d-e326-425b-a06f-f7efc3dc8a2f.jpg" id="1_tx3ne"]
+[ext_resource type="PackedScene" uid="uid://snsu3ejxowah" path="res://Modelos/cube.glb" id="2_3ygdf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqc36"]
+sky_top_color = Color(0, 0, 1, 1)
+sky_horizon_color = Color(0, 0, 1, 1)
+sky_cover = ExtResource("1_tx3ne")
+ground_bottom_color = Color(0.996545, 0.995411, 0.99413, 1)
+ground_horizon_color = Color(0, 0, 1, 1)
+
+[sub_resource type="Sky" id="Sky_qwerm"]
+sky_material = SubResource("ProceduralSkyMaterial_yqc36")
+
+[sub_resource type="Environment" id="Environment_s402g"]
+background_mode = 2
+sky = SubResource("Sky_qwerm")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yqc36"]
+viewport_path = NodePath("FrontView")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qwerm"]
+viewport_path = NodePath("TopView")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s402g"]
+viewport_path = NodePath("TopView")
+
+[node name="PresentationScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s402g")
+
+[node name="cube" parent="." instance=ExtResource("2_3ygdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 57, 4)
+shadow_enabled = true
+omni_range = 50.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 4, 53, 4)
+
+[node name="FrontView_Sprite" type="Sprite3D" parent="Camera3D"]
+transform = Transform3D(0.016, 0, 0, 0, 0.016, 4.76837e-10, 0, -4.76837e-10, 0.016, -0.376, -0.178, -0.335)
+texture = SubResource("ViewportTexture_yqc36")
+
+[node name="TopView_Sprite" type="Sprite3D" parent="Camera3D"]
+transform = Transform3D(0.016, 0, 0, 0, 0.016, 0, 0, 0, 0.016, -0.376, -0.018, -0.335)
+texture = SubResource("ViewportTexture_qwerm")
+
+[node name="SideView_Sprite" type="Sprite3D" parent="Camera3D"]
+transform = Transform3D(0.016, 0, 0, 0, 0.016, -3.72529e-09, 0, 0, 0.016, -0.216205, -0.180576, -0.33534)
+texture = SubResource("ViewportTexture_s402g")
+
+[node name="FrontView" type="SubViewport" parent="."]
+gui_disable_input = true
+size = Vector2i(1024, 1024)
+size_2d_override = Vector2i(1024, 1024)
+size_2d_override_stretch = true
+
+[node name="Camera3D" type="Camera3D" parent="FrontView"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 3)
+current = true
+
+[node name="SideView" type="SubViewport" parent="."]
+msaa_3d = 3
+screen_space_aa = 1
+gui_disable_input = true
+size = Vector2i(1024, 1024)
+size_2d_override = Vector2i(1024, 1024)
+size_2d_override_stretch = true
+
+[node name="Camera3D" type="Camera3D" parent="SideView"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 50, 0)
+current = true
+
+[node name="TopView" type="SubViewport" parent="."]
+msaa_3d = 3
+screen_space_aa = 1
+gui_disable_input = true
+size = Vector2i(1024, 1024)
+size_2d_override = Vector2i(1024, 1024)
+size_2d_override_stretch = true
+
+[node name="Camera3D" type="Camera3D" parent="TopView"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 53, 0)
+current = true
