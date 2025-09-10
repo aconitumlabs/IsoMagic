@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdsmunksvjwdn"]
+
+[ext_resource type="Script" uid="uid://b5siyyxagwv4i" path="res://Cenas/levels.gd" id="1_ph6nr"]
+[ext_resource type="ArrayMesh" uid="uid://c5r5wo3wq7tj2" path="res://Modelos/cube.obj" id="2_pkykv"]
+[ext_resource type="PackedScene" uid="uid://bqj0xs6s8kqxg" path="res://HUD.tscn" id="3_pkykv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ph6nr"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_r7ya8"]
+item/0/name = "cube"
+item/0/mesh = ExtResource("2_pkykv")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/mesh_cast_shadow = 1
+item/0/shapes = [SubResource("BoxShape3D_ph6nr"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+
+[node name="Level1" type="Node3D"]
+script = ExtResource("1_ph6nr")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_r7ya8")
+data = {
+"cells": PackedInt32Array(1, 0, 0, 2, 0, 0, 65537, 0, 0, 65538, 0, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.766044, -0.321394, 0.55667, 0, 0.866025, 0.5, -0.642788, -0.383022, 0.663414, 7.82022, 5.68767, 6.69811)
+current = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_pkykv")]
+
+[node name="UndoButton" parent="CanvasLayer" index="0"]
+offset_left = 1104.0
+offset_top = 608.0
+offset_right = 1624.0
+offset_bottom = 1128.0
+scale = Vector2(-0.05, 0.05)
+
+[node name="RedoButton" parent="CanvasLayer" index="1"]
+offset_left = 1112.0
+offset_top = 608.0
+offset_right = 1632.0
+offset_bottom = 1128.0
+scale = Vector2(0.05, 0.05)
+
+[editable path="CanvasLayer"]
