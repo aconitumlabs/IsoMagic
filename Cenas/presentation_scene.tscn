@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://74vep1lktiq0"]
+[gd_scene load_steps=8 format=3 uid="uid://74vep1lktiq0"]
 
 [ext_resource type="Texture2D" uid="uid://b64dynwookj0q" path="res://27e9691d-e326-425b-a06f-f7efc3dc8a2f.jpg" id="1_tx3ne"]
-[ext_resource type="PackedScene" uid="uid://snsu3ejxowah" path="res://Modelos/cube.glb" id="2_3ygdf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqc36"]
 sky_top_color = Color(0, 0, 1, 1)
@@ -30,9 +29,6 @@ viewport_path = NodePath("TopView")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_s402g")
-
-[node name="cube" parent="." instance=ExtResource("2_3ygdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 57, 4)
