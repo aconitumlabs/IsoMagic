@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqj0xs6s8kqxg"]
+
+[ext_resource type="Texture2D" uid="uid://bljqnl0wg4vsm" path="res://seta-para-a-direita.png" id="1_k5de2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="UndoButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(-1, 1)
+icon = ExtResource("1_k5de2")
+
+[node name="RedoButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("1_k5de2")
