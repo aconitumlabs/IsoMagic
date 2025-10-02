@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdsmunksvjwdn"]
 
-[ext_resource type="Script" uid="uid://b5siyyxagwv4i" path="res://Cenas/levels.gd" id="1_ph6nr"]
-[ext_resource type="ArrayMesh" uid="uid://c5r5wo3wq7tj2" path="res://Modelos/cube.obj" id="2_pkykv"]
-[ext_resource type="PackedScene" uid="uid://bqj0xs6s8kqxg" path="res://HUD.tscn" id="3_pkykv"]
+[ext_resource type="Script" uid="uid://b5siyyxagwv4i" path="res://Script/level.gd" id="1_ph6nr"]
+[ext_resource type="ArrayMesh" uid="uid://c5r5wo3wq7tj2" path="res://Model/cube.obj" id="2_pkykv"]
+[ext_resource type="PackedScene" uid="uid://bqj0xs6s8kqxg" path="res://Scene/HUD.tscn" id="3_pkykv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ph6nr"]
 

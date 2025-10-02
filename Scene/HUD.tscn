@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bqj0xs6s8kqxg"]
 
-[ext_resource type="Texture2D" uid="uid://bljqnl0wg4vsm" path="res://seta-para-a-direita.png" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://bljqnl0wg4vsm" path="res://Image/right-arrow.png" id="1_k5de2"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

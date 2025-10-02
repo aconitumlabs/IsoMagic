@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://74vep1lktiq0"]
 
-[ext_resource type="Texture2D" uid="uid://b64dynwookj0q" path="res://27e9691d-e326-425b-a06f-f7efc3dc8a2f.jpg" id="1_tx3ne"]
+[ext_resource type="Texture2D" uid="uid://b64dynwookj0q" path="res://Image/skybox.jpg" id="1_ixeid"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yqc36"]
 sky_top_color = Color(0, 0, 1, 1)
 sky_horizon_color = Color(0, 0, 1, 1)
-sky_cover = ExtResource("1_tx3ne")
+sky_cover = ExtResource("1_ixeid")
 ground_bottom_color = Color(0.996545, 0.995411, 0.99413, 1)
 ground_horizon_color = Color(0, 0, 1, 1)
 
