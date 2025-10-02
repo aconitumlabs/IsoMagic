@@ -3,7 +3,7 @@ extends Node3D
 @onready var camera: Camera3D = $Camera3D
 @onready var grid: GridMap = $GridMap
 
-# ===== Configuração da câmera orbital =====
+# ===== initial orbital camera configuration =====
 var target := Vector3.ZERO
 var distance := 10.0
 var desired_distance := 10.0
@@ -14,18 +14,18 @@ var max_distance := 50.0
 var min_pitch := -80.0
 var max_pitch := 80.0
 
-# Estado da câmera
+# camera state
 var rotating := false
 var yaw := 0.0
 var pitch := -20.0
 
-# ===== Highlight =====
+# ===== highlight =====
 var hovered_cell: Vector3i
 var highlight_mesh: MeshInstance3D
 var highlight_scale: Vector3
 
 func _ready():
-	# ---- Cria highlight wireframe ----
+	# ---- creates wireframe highlight ----
 	highlight_scale = grid.cell_size * 1.05
 	var st = SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_LINES)
@@ -66,14 +66,14 @@ func _ready():
 	add_child(highlight_mesh)
 	highlight_mesh.visible = false
 
-	# ---- Ajusta foco para o centro dos blocos ----
+	# ---- adjusts camera focus to center of grid ----
 	_update_target_from_grid()
 
-	# ---- Configuração inicial da câmera ----
+	# ---- initial camera configuration ----
 	_update_camera_transform()
 
 func _process(delta: float) -> void:
-	# ---- Atualiza highlight ----
+	# ---- updates highlight ----
 	var mouse_pos = get_viewport().get_mouse_position()
 	var from = camera.project_ray_origin(mouse_pos)
 	var to = from + camera.project_ray_normal(mouse_pos) * 1000.0
@@ -95,20 +95,20 @@ func _process(delta: float) -> void:
 	else:
 		highlight_mesh.visible = false
 
-	# ---- Zoom suave ----
+	# ---- smooth zoom ----
 	distance = lerp(distance, desired_distance, delta * 8.0)
 	_update_camera_transform()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			rotating = event.pressed   # botão esquerdo controla câmera
+			rotating = event.pressed   # left mouse button controls camera
 
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			if highlight_mesh.visible: # botão direito deleta bloco
+			if highlight_mesh.visible: # right mouse button deletes a cube
 				grid.set_cell_item(hovered_cell, -1)
 				highlight_mesh.visible = false
-				_update_target_from_grid() # recalcula centro dos blocos
+				_update_target_from_grid() # recalculates camera focus to grid center
 
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
 			desired_distance = max(min_distance, desired_distance - zoom_speed)
@@ -121,7 +121,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		pitch -= event.relative.y * sensitivity
 		pitch = clamp(pitch, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 
-	elif event is InputEventPanGesture: # suporte trackpad
+	elif event is InputEventPanGesture: # trackpad support
 		desired_distance = clamp(desired_distance + event.delta.y * 0.05, min_distance, max_distance)
 
 func _update_camera_transform():
