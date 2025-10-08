@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnrqmw12a7nnv"]
 
 [ext_resource type="Script" uid="uid://d1w4bhmx25mej" path="res://Script/button.gd" id="1_r1oth"]
-[ext_resource type="Texture2D" uid="uid://3vcc37sa52f7" path="res://Sprites/lock.png" id="1_vyaok"]
+[ext_resource type="Texture2D" uid="uid://3vcc37sa52f7" path="res://Image/lock.png" id="1_vyaok"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1oth"]
 animations = [{

@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:Image/icon.svg.import
-uid="uid://6a62aoifdd0o"
+uid="uid://cwpe3toxrj3ig"
 path="res://.godot/imported/icon.svg-22adc54f3de2074ff1d4c090e5cf0028.ctex"
-========
-uid="uid://3vcc37sa52f7"
-path="res://.godot/imported/lock.png-6fac9349cb5291238717611ff46947de.ctex"
->>>>>>>> 0b8f0bb (Better colors & features):Sprites/lock.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:Image/icon.svg.import
 source_file="res://Image/icon.svg"
 dest_files=["res://.godot/imported/icon.svg-22adc54f3de2074ff1d4c090e5cf0028.ctex"]
-========
-source_file="res://Sprites/lock.png"
-dest_files=["res://.godot/imported/lock.png-6fac9349cb5291238717611ff46947de.ctex"]
->>>>>>>> 0b8f0bb (Better colors & features):Sprites/lock.png.import
 
 [params]
 
@@ -48,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
