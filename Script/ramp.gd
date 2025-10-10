@@ -56,7 +56,7 @@ func _ready() -> void:
 	_gen_mesh(initial_mesh)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#rotation += Vector3(0,PI * delta,0)
 	pass
 	
