@@ -40,6 +40,24 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.78431374)
 script = ExtResource("1_3rv14")
 
+[node name="Godot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -22.0
+offset_right = 75.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Powered by Godot"
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -81,24 +99,6 @@ theme_override_fonts/font = ExtResource("3_3rv14")
 text = "Este projeto não seria possível sem o apoio e a orientação da 
 Professora Laldiane Pinheiro e da Universidade de Fortaleza. 
 Nossa sincera gratidão."
-horizontal_alignment = 1
-
-[node name="Godot" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -22.0
-offset_right = 75.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
-theme_override_fonts/font = ExtResource("3_3rv14")
-text = "Powered by Godot"
 horizontal_alignment = 1
 
 [node name="Back_button" type="Button" parent="."]
