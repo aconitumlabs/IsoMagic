@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4oluibief5dv"]
 
 [ext_resource type="Script" uid="uid://c0f1l3ke3l2lv" path="res://Script/level_select_menu.gd" id="1_5lijy"]
-[ext_resource type="PackedScene" uid="uid://bnrqmw12a7nnv" path="res://Cenas/button.tscn" id="2_5lijy"]
-[ext_resource type="PackedScene" uid="uid://cdvqbaigikyey" path="res://Cenas/level_select_camera.tscn" id="2_tio8e"]
-[ext_resource type="PackedScene" uid="uid://74vep1lktiq0" path="res://Cenas/presentation_scene.tscn" id="3_kl55n"]
+[ext_resource type="PackedScene" uid="uid://bnrqmw12a7nnv" path="res://Scene/button.tscn" id="2_5lijy"]
+[ext_resource type="PackedScene" uid="uid://cdvqbaigikyey" path="res://Scene/level_select_camera.tscn" id="2_tio8e"]
+[ext_resource type="PackedScene" uid="uid://74vep1lktiq0" path="res://Scene/presentation_scene.tscn" id="3_kl55n"]
 
 [node name="LevelSelectMenu" type="Node2D"]
 script = ExtResource("1_5lijy")

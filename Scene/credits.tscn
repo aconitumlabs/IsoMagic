@@ -1,0 +1,156 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5s57eofxltwr"]
+
+[ext_resource type="Script" uid="uid://dal0i2prb5h8m" path="res://Script/credits.gd" id="1_3rv14"]
+[ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="1_7whrh"]
+[ext_resource type="Shader" uid="uid://dqi8sbqvucpyt" path="res://Shaders/credits.gdshader" id="1_wofek"]
+[ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="3_3rv14"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5xx"]
+shader = ExtResource("1_wofek")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[node name="Credits" type="ColorRect"]
+material = SubResource("ShaderMaterial_pb5xx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 110.0
+offset_right = -322.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+script = ExtResource("1_3rv14")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 64.0
+offset_right = 108.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_7whrh")
+theme_override_font_sizes/font_size = 50
+text = "CRÉDITOS"
+
+[node name="Equipe" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 31.0
+offset_top = 124.5
+offset_right = 689.0
+offset_bottom = 282.5
+theme_override_fonts/font = ExtResource("1_7whrh")
+horizontal_alignment = 1
+
+[node name="Agradecimento" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = 26.0
+offset_right = 237.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Este projeto não seria possível sem o apoio e a orientação da 
+Professora Laldiane Pinheiro e da Universidade de Fortaleza. 
+Nossa sincera gratidão."
+horizontal_alignment = 1
+
+[node name="Godot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -22.0
+offset_right = 75.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.3529412, 0.3529412, 0.3529412, 1)
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Powered by Godot"
+horizontal_alignment = 1
+
+[node name="Back_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -68.0
+offset_right = 30.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Voltar"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -74.0
+offset_right = 20.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Matheus Najal "
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Lucca Han"
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Antonio Alves"
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3rv14")
+text = "Isaac Gurgel"
+
+[connection signal="pressed" from="Back_button" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,240 @@
+[gd_scene load_steps=27 format=3 uid="uid://bi63k72psgg5l"]
+
+[ext_resource type="Script" uid="uid://c3rmghp6bnmuf" path="res://Script/menu.gd" id="1_alu6o"]
+[ext_resource type="Script" uid="uid://dsx45cldv1vw7" path="res://Script/mesh_instance_3d.gd" id="1_b23qx"]
+[ext_resource type="Texture2D" uid="uid://b1lfb7hqkw3en" path="res://Image/Shadow.png" id="2_eas8t"]
+[ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="3_u2k45"]
+[ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="5_6hgn1"]
+[ext_resource type="PackedScene" uid="uid://c5s57eofxltwr" path="res://Scene/credits.tscn" id="5_ffxp3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b23qx"]
+albedo_color = Color(1, 0.2509804, 0.2509804, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eas8t"]
+material = SubResource("StandardMaterial3D_b23qx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2k45"]
+albedo_color = Color(1, 0.22745098, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_alu6o"]
+material = SubResource("StandardMaterial3D_u2k45")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffxp3"]
+albedo_color = Color(1, 0.7764706, 0.25882354, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6hgn1"]
+material = SubResource("StandardMaterial3D_ffxp3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyf5i"]
+albedo_color = Color(1, 1, 0.25882354, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k52wo"]
+material = SubResource("StandardMaterial3D_fyf5i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddci3"]
+albedo_color = Color(0.23529412, 0.2509804, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iaqyx"]
+material = SubResource("StandardMaterial3D_ddci3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5dui"]
+albedo_color = Color(0.21176471, 1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lgfj1"]
+material = SubResource("StandardMaterial3D_j5dui")
+
+[sub_resource type="Environment" id="Environment_b23qx"]
+background_mode = 1
+background_color = Color(0.8862745, 0.8235294, 0.69411767, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b23qx"]
+bg_color = Color(0.23529412, 0.2509804, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg8xt"]
+bg_color = Color(0.21176471, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eas8t"]
+bg_color = Color(1, 1, 0.25882354, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffxp3"]
+bg_color = Color(1, 0.7764706, 0.25882354, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2k45"]
+bg_color = Color(1, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alu6o"]
+bg_color = Color(1, 0.22745098, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eas8t"]
+viewport_path = NodePath("Cube")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alu6o")
+
+[node name="Cube" type="SubViewport" parent="."]
+
+[node name="Cube_scene" type="Node3D" parent="Cube"]
+
+[node name="Colored_cube" type="Node3D" parent="Cube/Cube_scene"]
+script = ExtResource("1_b23qx")
+
+[node name="Front" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, 0, 0, 1)
+mesh = SubResource("PlaneMesh_eas8t")
+
+[node name="Back" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, -1)
+mesh = SubResource("PlaneMesh_alu6o")
+
+[node name="Left" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 1, 0, 0)
+mesh = SubResource("PlaneMesh_6hgn1")
+
+[node name="Right" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, -1, 0, 0)
+mesh = SubResource("PlaneMesh_k52wo")
+
+[node name="Top" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PlaneMesh_iaqyx")
+
+[node name="Base" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_lgfj1")
+
+[node name="Camera3D" type="Camera3D" parent="Cube/Cube_scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Cube/Cube_scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2109277, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Cube/Cube_scene"]
+environment = SubResource("Environment_b23qx")
+
+[node name="Shadow Cube" type="Sprite3D" parent="Cube/Cube_scene"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0674746, -1.9387646, 0.15962148)
+modulate = Color(1, 1, 1, 0.78431374)
+texture = ExtResource("2_eas8t")
+
+[node name="color_background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.8235294, 0.69411767, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -24.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_u2k45")
+theme_override_font_sizes/font_size = 50
+text = "ISOMAGIC"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b23qx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gg8xt")
+text = "Iniciar"
+
+[node name="Credits" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eas8t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ffxp3")
+text = "Créditos"
+
+[node name="Exit" type="Button" parent="VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_u2k45")
+theme_override_styles/hover = SubResource("StyleBoxFlat_alu6o")
+text = "Sair"
+
+[node name="Cube_render" type="Sprite2D" parent="."]
+position = Vector2(576, 180)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_eas8t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Credits" parent="CanvasLayer" instance=ExtResource("5_ffxp3")]
+visible = false
+offset_left = 220.0
+offset_top = 85.0
+offset_right = -212.0
+offset_bottom = -115.0
+
+[connection signal="pressed" from="VBoxContainer/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Exit" to="." method="_on_exit_pressed"]
