@@ -6,7 +6,7 @@ func _ready() -> void:
 	credits.visible = false
 	
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scene/level_select_menu.tscn")
+	get_tree().change_scene_to_file("res://Scene/LevelSelect/level_select.tscn")
 
 
 func _on_credits_pressed() -> void:

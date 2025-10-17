@@ -1,11 +1,11 @@
 [gd_scene load_steps=27 format=3 uid="uid://bi63k72psgg5l"]
 
-[ext_resource type="Script" uid="uid://c3rmghp6bnmuf" path="res://Script/menu.gd" id="1_alu6o"]
-[ext_resource type="Script" uid="uid://dsx45cldv1vw7" path="res://Script/mesh_instance_3d.gd" id="1_b23qx"]
-[ext_resource type="Texture2D" uid="uid://b1lfb7hqkw3en" path="res://Image/Shadow.png" id="2_eas8t"]
-[ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="3_u2k45"]
-[ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="5_6hgn1"]
-[ext_resource type="PackedScene" uid="uid://c5s57eofxltwr" path="res://Scene/credits.tscn" id="5_ffxp3"]
+[ext_resource type="Script" uid="uid://c3rmghp6bnmuf" path="res://Script/Menu/menu.gd" id="1_nms3e"]
+[ext_resource type="Script" uid="uid://dsx45cldv1vw7" path="res://Script/mesh_instance_3d.gd" id="2_58ix3"]
+[ext_resource type="Texture2D" uid="uid://b1lfb7hqkw3en" path="res://Image/Shadow.png" id="3_tcr8g"]
+[ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="4_vbyya"]
+[ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="5_oiis8"]
+[ext_resource type="PackedScene" uid="uid://c5s57eofxltwr" path="res://Scene/Menu/credits.tscn" id="6_qwk0t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b23qx"]
 albedo_color = Color(1, 0.2509804, 0.2509804, 1)
@@ -99,14 +99,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_alu6o")
+script = ExtResource("1_nms3e")
 
 [node name="Cube" type="SubViewport" parent="."]
 
 [node name="Cube_scene" type="Node3D" parent="Cube"]
 
 [node name="Colored_cube" type="Node3D" parent="Cube/Cube_scene"]
-script = ExtResource("1_b23qx")
+script = ExtResource("2_58ix3")
 
 [node name="Front" type="MeshInstance3D" parent="Cube/Cube_scene/Colored_cube"]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, 0, 0, 1)
@@ -144,7 +144,7 @@ environment = SubResource("Environment_b23qx")
 [node name="Shadow Cube" type="Sprite3D" parent="Cube/Cube_scene"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0674746, -1.9387646, 0.15962148)
 modulate = Color(1, 1, 1, 0.78431374)
-texture = ExtResource("2_eas8t")
+texture = ExtResource("3_tcr8g")
 
 [node name="color_background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -179,7 +179,7 @@ theme_override_constants/separation = 30
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_u2k45")
+theme_override_fonts/font = ExtResource("4_vbyya")
 theme_override_font_sizes/font_size = 50
 text = "ISOMAGIC"
 horizontal_alignment = 1
@@ -194,7 +194,7 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_fonts/font = ExtResource("5_oiis8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b23qx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gg8xt")
 text = "Iniciar"
@@ -205,7 +205,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_fonts/font = ExtResource("5_oiis8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eas8t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ffxp3")
 text = "Créditos"
@@ -216,7 +216,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6hgn1")
+theme_override_fonts/font = ExtResource("5_oiis8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_u2k45")
 theme_override_styles/hover = SubResource("StyleBoxFlat_alu6o")
 text = "Sair"
@@ -228,7 +228,7 @@ texture = SubResource("ViewportTexture_eas8t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Credits" parent="CanvasLayer" instance=ExtResource("5_ffxp3")]
+[node name="Credits" parent="CanvasLayer" instance=ExtResource("6_qwk0t")]
 visible = false
 offset_left = 220.0
 offset_top = 85.0

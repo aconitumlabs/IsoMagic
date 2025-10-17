@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5s57eofxltwr"]
 
-[ext_resource type="Script" uid="uid://dal0i2prb5h8m" path="res://Script/credits.gd" id="1_3rv14"]
+[ext_resource type="Script" uid="uid://dal0i2prb5h8m" path="res://Script/Menu/credits.gd" id="1_3rv14"]
 [ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="1_7whrh"]
 [ext_resource type="Shader" uid="uid://dqi8sbqvucpyt" path="res://Shaders/credits.gdshader" id="1_wofek"]
 [ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="3_3rv14"]
