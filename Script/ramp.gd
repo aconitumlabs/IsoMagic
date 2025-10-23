@@ -1,7 +1,6 @@
 @tool
 extends MeshInstance3D
-
-@export_tool_button("Build mesh", "BoxMesh") var build_mesh = gen_mesh
+@export_tool_button("Paint mesh", "BoxMesh") var build_mesh = gen_painted_mesh
 
 @export_group("Colors")
 @export var positive_x_color := Color(1, 0.25, 0.25) #FF4040
@@ -11,7 +10,7 @@ extends MeshInstance3D
 @export var positive_z_color := Color(1.0, 1.0, 0.26) #FFFF42
 @export var negative_z_color := Color(1.0, 0.78, 0.26) #FFC642
 
-const triangles :PackedVector3Array = [
+const ramp :PackedVector3Array = [
 	# front slope
 	Vector3(0.5,-0.5,0.5),
 	Vector3(-0.5,0.5,-0.5),
@@ -52,7 +51,7 @@ const triangles :PackedVector3Array = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	gen_mesh()
+	gen_painted_mesh()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -60,7 +59,9 @@ func _process(_delta: float) -> void:
 	#print(Quaternion(basis))
 	pass
 
-func gen_mesh() -> void:
+func gen_painted_mesh() -> void:
+	var triangles := mesh.get_faces()
+	print(mesh)
 	assert(
 		len(triangles) % 3 == 0,
 		"ERROR: Mesh needs to specified in an array of triangles (3 vertices for each face)"
