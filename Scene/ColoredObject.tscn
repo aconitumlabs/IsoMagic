@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=4 uid="uid://c856snc332s77"]
+
+[ext_resource type="Script" uid="uid://dudmful1sfkr6" path="res://Script/colored_object.gd" id="2_nxd2m"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_l713v"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/jr+//46/v/+Ov7//jr+//4/P//+Pz///j8///4/P//+Pz///j8//z0///89P///PT///z0////+xkL//sZC//7GQv/+xkL//v5C//7+Qv/+/kL//v5C//7+Qv/+/kL/Nf///zX///81////Nf///w=="),
+"format": 34359742479,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABwAIAAkACgALAAwADAALAA0ADgAPABAAEAAPABEAEgATABQAFQAWABcAGAAZABoAGgAZABsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AACAvwAAgD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgD8AAIC/AACAvwAAgL8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIC/AACAPwAAgL8AAIA/AACAvwAAgD8AAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAvwAAgD8AAIC/AACAvwAAgL8AAIC/AACAPwAAgD8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIA/AACAPwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAPwAAgL8AAIA/AACAvwAAgL8AAIA/AACAPwAAgL8AAIC/AACAvwAAgL8AAIC/AACAPwAAgL8AAIA/AACAvwAAgL8AAIA/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7////9//3//v////3//f/+/////f/9//7////9//3//v////3//f/+/////f/9//7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v///////fwCA//////9/AID//////38AgP//////fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/78=")
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxd2m"]
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[node name="ColoredObject" type="MeshInstance3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1.0000004, 0, 0, 0, 0.9999998, 0, 0, 0)
+mesh = SubResource("ArrayMesh_l713v")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxd2m")
+script = ExtResource("2_nxd2m")
