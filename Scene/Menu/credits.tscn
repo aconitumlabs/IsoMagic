@@ -1,34 +1,100 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5s57eofxltwr"]
+[gd_scene load_steps=8 format=3 uid="uid://c5s57eofxltwr"]
 
 [ext_resource type="Script" uid="uid://dal0i2prb5h8m" path="res://Script/Menu/credits.gd" id="1_3rv14"]
 [ext_resource type="FontFile" uid="uid://8v6y60y6ykma" path="res://Fonts/RebellionSquad-ZpprZ.ttf" id="1_7whrh"]
-[ext_resource type="Shader" uid="uid://dqi8sbqvucpyt" path="res://Shaders/credits.gdshader" id="1_wofek"]
 [ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="3_3rv14"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5xx"]
-shader = ExtResource("1_wofek")
-shader_parameter/use_sprite_alpha = true
-shader_parameter/use_transition_texture = false
-shader_parameter/transition_type = 0
-shader_parameter/position = Vector2(0, 0)
-shader_parameter/invert = false
-shader_parameter/grid_size = Vector2(1, 1)
-shader_parameter/rotation_angle = 0.0
-shader_parameter/stagger = Vector2(0, 0)
-shader_parameter/stagger_frequency = Vector2i(2, 2)
-shader_parameter/flip_frequency = Vector2i(1, 1)
-shader_parameter/basic_feather = 0.0
-shader_parameter/use_mask_size = false
-shader_parameter/mask_size = Vector2(100, 100)
-shader_parameter/edges = 6
-shader_parameter/shape_feather = 0.1
-shader_parameter/sectors = 1
-shader_parameter/clock_feather = 0.0
-shader_parameter/progress = 0.0
-shader_parameter/progress_bias = Vector2(0, 0)
+[sub_resource type="Animation" id="Animation_js3f6"]
+resource_name = "disappear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vvrw6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_v2eib"]
+resource_name = "appear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvrw6"]
+_data = {
+&"RESET": SubResource("Animation_vvrw6"),
+&"appear": SubResource("Animation_v2eib"),
+&"disappear": SubResource("Animation_js3f6")
+}
 
 [node name="Credits" type="ColorRect"]
-material = SubResource("ShaderMaterial_pb5xx")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -152,5 +218,10 @@ text = "Antonio Alves"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_3rv14")
 text = "Isaac Gurgel"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vvrw6")
+}
 
 [connection signal="pressed" from="Back_button" to="." method="_on_back_button_pressed"]
