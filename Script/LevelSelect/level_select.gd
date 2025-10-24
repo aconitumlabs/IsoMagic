@@ -11,20 +11,18 @@ func _ready() -> void:
 
 func get_levels(path) -> void:
 	var dir = DirAccess.open(path)
-	
-	if dir: 
-		dir.list_dir_begin()
-		
-		var file_name = dir.get_next() 
-		
-		while file_name != "":
-			print(file_name)
-			create_level_btn('%s/%s' % [dir.get_current_dir(), file_name], file_name)
-			file_name = dir.get_next()
-			
-		dir.list_dir_end()
-	else:
-		print('An error occurred when trying to access the path')
+
+	assert(dir, "An error occurred when trying to access the path")
+	dir.list_dir_begin()
+
+	var file_name = dir.get_next()
+
+	while file_name != "":
+		print(file_name)
+		create_level_btn('%s/%s' % [dir.get_current_dir(), file_name], file_name)
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
 
 func create_level_btn(lvl_path: String, lvl_name: String) -> void:
 	var btn = LEVEL_BTN.instantiate()
