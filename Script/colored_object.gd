@@ -36,7 +36,7 @@ func gen_painted_mesh() -> void:
 		var normal := Plane(
 			a,
 			b,
-			c
+			c,
 		).normal
 
 		for v in [a,b,c]:

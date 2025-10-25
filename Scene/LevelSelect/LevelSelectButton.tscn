@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfg1ufrg1t07b"]
+
+[ext_resource type="FontFile" uid="uid://dpi8nq233ex2w" path="res://Fonts/Helvetica-Bold.ttf" id="1_coach"]
+[ext_resource type="Script" uid="uid://sbrfpapbgtm1" path="res://Script/LevelSelect/level_select_button.gd" id="1_jmfpd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm64n"]
+bg_color = Color(0, 1, 0.3529412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_coach")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vm64n")
+text = "Level 1"
+script = ExtResource("1_jmfpd")
+level_path = "<null>"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
